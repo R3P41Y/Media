@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gotham City Department of Public Safety</title>
+    <style>
+        /* Global Styling */
+        body {
+            background-color: #111;
+            color: #ddd;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        h1, h2, h3 {
+            color: #ff4141;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .header {
+            padding: 20px;
+            background-color: #222;
+            border-bottom: 2px solid #ff4141;
+        }
+        .section {
+            margin-top: 30px;
+            padding: 15px;
+            background: #222;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.7);
+        }
+        .file-card {
+            background: #333;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 3px solid #ff4141;
+            cursor: pointer;
+            position: relative;
+        }
+        .file-card:hover {
+            background: #444;
+        }
+        .file-header {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .threat-level {
+            font-size: 0.9em;
+            color: #ff8c00;
+        }
+        
+        /* Modal Styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .modal-content {
+            background-color: #222;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            text-align: left;
+            color: #ddd;
+            border-radius: 8px;
+            position: relative;
+        }
+        .modal-content img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .close {
+            color: #aaa;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover {
+            color: #ff4141;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Header -->
+    <div class="header">
+        <h1>Gotham City Department of Public Safety</h1>
+        <p>Restricted Access Only - Authorized Personnel</p>
+    </div>
+
+    <!-- Introduction Section -->
+    <div class="section">
+        <h2>Criminal Threat Files</h2>
+        <p>Select a file below to view the details of Gotham's most wanted.</p>
+    </div>
+
+    <!-- File Cards -->
+    <div class="section">
+        <!-- Joker's File -->
+        <div class="file-card" onclick="openModal('jokerModal')">
+            <div class="file-header">File: Joker</div>
+            <div class="threat-level">Threat Level: Unpredictable</div>
+            <p class="file-description">Known Associates: Harley Quinn</p>
+        </div>
+        
+        <!-- Bane's File -->
+        <div class="file-card" onclick="openModal('baneModal')">
+            <div class="file-header">File: Bane</div>
+            <div class="threat-level">Threat Level: Extreme</div>
+            <p class="file-description">Known for his superhuman strength and strategic mind.</p>
+        </div>
+
+        <!-- Crucido's File -->
+        <div class="file-card" onclick="openModal('crucidoModal')">
+            <div class="file-header">File: Crucido</div>
+            <div class="threat-level">Threat Level: Lethal</div>
+            <p class="file-description">An elusive assassin known as "The Shadow of Gotham".</p>
+        </div>
+    </div>
+</div>
+
+<!-- Joker Modal -->
+<div id="jokerModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('jokerModal')">&times;</span>
+        <h2>Criminal File: Joker</h2>
+        <img src="joker.jpg" alt="Joker Wanted Poster">
+        <p><strong>Real Name:</strong> Unknown</p>
+        <p><strong>Threat Level:</strong> Unpredictable</p>
+        <p><strong>Known Associates:</strong> Harley Quinn, Scarecrow</p>
+        <p><strong>Psychological Profile:</strong> A criminally insane individual with a chaotic, unpredictable personality. His obsession with Batman borders on a psychological fixation. Known to manipulate his surroundings with an anarchic approach.</p>
+        <p><strong>Last Known Location:</strong> Ace Chemicals, Gotham</p>
+    </div>
+</div>
+
+<!-- Bane Modal -->
+<div id="baneModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('baneModal')">&times;</span>
+        <h2>Criminal File: Bane</h2>
+        <img src="bane.png" alt="Bane Wanted Poster">
+        <p><strong>Real Name:</strong> Unknown</p>
+        <p><strong>Threat Level:</strong> Extreme</p>
+        <p><strong>Known Associates:</strong> None</p>
+        <p><strong>Psychological Profile:</strong> Bane is a physically and mentally formidable adversary, known for his intense training regimen and strategic mind. He harbors a deep resentment for Batman, aiming to break the hero both physically and psychologically.</p>
+        <p><strong>Last Known Location:</strong> Sewers of Gotham</p>
+    </div>
+</div>
+
+<!-- Crucido Modal -->
+<div id="crucidoModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('crucidoModal')">&times;</span>
+        <h2>Criminal File: Crucido</h2>
+        <img src="crucido.jpeg" alt="Crucido Wanted Poster">
+        <p><strong>Real Name:</strong> Julian Black</p>
+        <p><strong>Threat Level:</strong> Lethal</p>
+        <p><strong>Known Associates:</strong> None</p>
+        <p><strong>Psychological Profile:</strong> A cold and calculated assassin, Crucido is known for his stealth and precision. He operates in the shadows, leaving no trace of his presence. His skills in combat and strategy make him one of Gotham's most feared threats.</p>
+        <p><strong>Last Known Location:</strong> Abandoned Warehouse District, Gotham</p>
+    </div>
+</div>
+
+<script>
+    // Function to open modal
+    function openModal(modalId) {
+        document.getElementById(modalId).style.display = "block";
+    }
+
+    // Function to close modal
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = "none";
+    }
+
+    // Close modal when clicking outside of modal content
+    window.onclick = function(event) {
+        let modals = document.getElementsByClassName('modal');
+        for (let i = 0; i < modals.length; i++) {
+            if (event.target === modals[i]) {
+                modals[i].style.display = "none";
+            }
+        }
+    }
+</script>
+
+
+
+  <!-- Countdown Timer Section -->
+    <div class="section">
+        <h3>Countdown to Gotham City Briefing</h3>
+        <p id="countdown">00:00:00</p>
+    </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    Gotham City Department of Public Safety - Classified Access Only
+</div>
+
+<!-- JavaScript for Countdown Timer -->
+<script>
+    // Countdown timer (for demo purposes, a 10-second countdown)
+    let countdownDate = new Date().getTime() + 10000;
+
+    let timer = setInterval(function() {
+        let now = new Date().getTime();
+        let distance = countdownDate - now;
+
+        let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("countdown").innerHTML = "00:00:" + (seconds < 10 ? "0" : "") + seconds;
+
+        if (distance < 0) {
+            clearInterval(timer);
+            document.getElementById("countdown").innerHTML = "Briefing Started!";
+        }
+    }, 1000);
+</script>
+
+
+</body>
+</html>
